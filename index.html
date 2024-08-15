@@ -36,7 +36,7 @@
         #load{
             width: 0;
             height: 100%;
-            border-radius: 5px;
+            border-radius: 0;
             position: fixed;
             bottom: 0;
             top: 0;
@@ -112,7 +112,7 @@
             <source src="trailer.mp4" type="video/mp4">
         </video>
     </div>
-    <button id="pradeti" onclick="start()" style="position: absolute; cursor: pointer; top: 5px; left: 5px; color: white; background-color: red; border: 2px solid white; padding: 5px;">Click to start "filmo_paleidimas"</button>
+    <button id="pradeti" onclick="start()" style="position: absolute; cursor: pointer; top: 5px; left: 5px; color: white; background-color: red; border: 2px solid white; padding: 5px;">Click here to start "filmo-paleidimas"</button>
     <script>
         function start() {
             var puslapis = document.documentElement;
@@ -124,7 +124,7 @@
             } else if (puslapis.msRequestFullscreen) { /* IE11 */
                 puslapis.msRequestFullscreen();
             }
-            document.getElementById("pradeti").innerHTML = '<i>"filmo_paleidimas":</i> <br> Starting countdown... <br> Entering full screen... <br> Hiding cursor...';
+            document.getElementById("pradeti").innerHTML = 'Created by Matas <br> <i>"filmo-paleidimas":</i> <br> Starting countdown... <br> Entering full screen... <br> Hiding cursor...';
             document.documentElement.style.cursor = "none";
             setTimeout(() => {
                 document.getElementById("pradeti").style.display = "none";
