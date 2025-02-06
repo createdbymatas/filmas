@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    transition: 1s;
+    user-select: none;
+    font-weight: 400;
+}
+body{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+i{
+    font-weight: 600;
+}
+#load{
+    width: 0;
+    height: 100%;
+    border-radius: 0;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    background-color: green;
+    animation: move 2s ease-in-out infinite;
+    z-index: -1;
+}
+@keyframes move{
+    0%{
+        width: 0;
+        left: 0;
+    }
+    50%{
+        width: 100%;
+        left: 0;
+    }
+    100%{
+        width: 0;
+        left: 100%;
+    }
+}
+.spin-loader {
+    border-radius: 80%;
+    display: block;
+    height: 50px;
+    width: 50px;
+    position: relative;
+    animation: spin 0.65s linear 0s infinite normal;
+    background: white;
+}
+.spin-loader:before, .spin-loader:after {
+    content: "";
+    display: block;
+    position: absolute;
+}
+.spin-loader:before {
+    border-radius: 0 90px 90px 0;
+    height: 50px;
+    width: 50%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: white;
+    background-image: linear-gradient(white, green);
+}
+.spin-loader:after {
+    border-radius: 80%;
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background: black;
+}
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

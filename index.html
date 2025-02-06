@@ -9,96 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/jpg" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-            transition: 1s;
-            user-select: none;
-            font-weight: 400;
-        }
-        body{
-            background-color: black;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-        }
-        i{
-            font-weight: 600;
-        }
-        #load{
-            width: 0;
-            height: 100%;
-            border-radius: 0;
-            position: fixed;
-            bottom: 0;
-            top: 0;
-            left: 0;
-            background-color: green;
-            animation: move 2s ease-in-out infinite;
-            z-index: -1;
-        }
-        @keyframes move{
-            0%{
-                width: 0;
-                left: 0;
-            }
-            50%{
-                width: 100%;
-                left: 0;
-            }
-            100%{
-                width: 0;
-                left: 100%;
-            }
-        }
-        .spin-loader {
-	        border-radius: 80%;
-	        display: block;
-	        height: 50px;
-	        width: 50px;
-	        position: relative;
-	        animation: spin 0.65s linear 0s infinite normal;
-	        background: white;
-        }
-        .spin-loader:before, .spin-loader:after {
-	        content: "";
-	        display: block;
-	        position: absolute;
-        }
-        .spin-loader:before {
-	        border-radius: 0 90px 90px 0;
-	        height: 50px;
-	        width: 50%;
-	        top: 0;
-	        right: 0;
-	        z-index: 1;
-	        background: white;
-	        background-image: linear-gradient(white, green);
-        }
-        .spin-loader:after {
-	        border-radius: 80%;
-	        height: 40px;
-	        width: 40px;
-	        top: 50%;
-	        left: 50%;
-	        transform: translate(-50%, -50%);
-	        z-index: 1;
-	        background: black;
-        }
-        @keyframes spin {
-	        to {
-		        transform: rotate(360deg);
-	        }
-        }
-    </style>
     <h1 id="h11" style="text-align: center;">Filmas "..." prasidės netrukus.</h1>
     <h1 id="h12" style="margin: 20px; text-align: center;">Prašome palaukti...</h1>
     <h1 id="h13" style="text-align: center;">Likęs laikas: <span id="countdown" style="font-weight: 600;">--:--</span></h1>
@@ -113,58 +26,6 @@
         </video>
     </div>
     <button id="pradeti" onclick="start()" style="position: absolute; cursor: pointer; top: 5px; left: 5px; color: white; background-color: red; border: 2px solid white; padding: 5px;">Click here to start "filmo-paleidimas"</button>
-    <script>
-        function start() {
-            var puslapis = document.documentElement;
-
-            if (puslapis.requestFullscreen) {
-                puslapis.requestFullscreen();
-            } else if (puslapis.webkitRequestFullscreen) { /* Safari */
-                puslapis.webkitRequestFullscreen();
-            } else if (puslapis.msRequestFullscreen) { /* IE11 */
-                puslapis.msRequestFullscreen();
-            }
-            document.getElementById("pradeti").innerHTML = 'Created by Matas <br> <i>"filmo-paleidimas":</i> <br> Starting countdown... <br> Entering full screen... <br> Hiding cursor...';
-            document.documentElement.style.cursor = "none";
-            setTimeout(() => {
-                document.getElementById("pradeti").style.display = "none";
-            }, 1000);
-            setTimeout(() => {
-                document.getElementById("h11").style.marginTop = "-100%";
-                document.getElementById("load").style.top = "-100%";
-                document.getElementById("loadingTrailer").style.top = "0";
-            }, 902000);
-            setTimeout(() => {
-                document.getElementById("h11").style.display = "none";
-                document.getElementById("h12").style.display = "none";
-                document.getElementById("h13").style.display = "none";
-                document.getElementById("load").style.display = "none";
-            }, 903000);
-            setTimeout(() => {
-                document.getElementById("loadingTrailer").style.top = "-100%";
-                document.getElementById("trailerBg").style.top = "0";
-                document.getElementById("myvideo").play();
-            }, 908000);
-
-            const startingMinutes = 15;
-            let time = startingMinutes * 60; //minutes * 60 seconds
-            let refreshIntervalId = setInterval(updateCountdown, 1000); //update every 1 second
-
-            function updateCountdown() {
-                const minutes = Math.floor(time / 60); // rounds a number DOWN to the nearest integer
-                let seconds = time % 60;
-
-                seconds = seconds < 10 ? '0' + seconds : seconds; 
-                const countdownElement = document.getElementById("countdown"); 
-                countdownElement.innerHTML = `${minutes}:${seconds}`;
-
-                time--;
-
-                if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
-                    clearInterval(refreshIntervalId);
-                }
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
