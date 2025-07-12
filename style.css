@@ -16,6 +16,9 @@ body{
     flex-direction: column;
     height: 100vh;
 }
+b{
+    font-weight: 600;
+}
 i{
     font-weight: 600;
 }
@@ -28,7 +31,7 @@ i{
     top: 0;
     left: 0;
     background-color: green;
-    animation: move 2s ease-in-out infinite;
+    animation: move 3s ease-in-out infinite;
     z-index: -1;
 }
 @keyframes move{
@@ -36,9 +39,13 @@ i{
         width: 0;
         left: 0;
     }
-    50%{
+    48%{
         width: 100%;
         left: 0;
+    }
+    96%{
+        width: 0;
+        left: 100%;
     }
     100%{
         width: 0;

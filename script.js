@@ -8,11 +8,11 @@ function start() {
     } else if (puslapis.msRequestFullscreen) { /* IE11 */
         puslapis.msRequestFullscreen();
     }
-    document.getElementById("pradeti").innerHTML = 'Created by Matas <br> <i>"filmo-paleidimas":</i> <br> Starting countdown... <br> Entering full screen... <br> Hiding cursor...';
+    document.getElementById("pradeti").innerHTML = '<b>valdymo skydas</b><br><i>"filmo-paleidimas":</i><br>pradedamas atgalinis skaičiavimas (15 min)...<br>įjungiamas pilnaekranis režimas... <br> slepiamas žymeklis...<br><b>Created by Matas</b>';
     document.documentElement.style.cursor = "none";
     setTimeout(() => {
         document.getElementById("pradeti").style.display = "none";
-    }, 1000);
+    }, 3000);
     setTimeout(() => {
         document.getElementById("h11").style.marginTop = "-100%";
         document.getElementById("load").style.top = "-100%";
@@ -44,7 +44,7 @@ function start() {
 
         time--;
 
-        if (time < 0) { //stop the setInterval whe time = 0 for avoid negative time
+        if (time < 0) { //stop the setInterval when time = 0 for avoid negative time
             clearInterval(refreshIntervalId);
         }
     }
