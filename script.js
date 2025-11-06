@@ -1,3 +1,4 @@
+alert(self.navigator.appVersion);
 function start() {
     var puslapis = document.documentElement;
 
